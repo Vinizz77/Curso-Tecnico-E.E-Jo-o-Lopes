@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle de entrada</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="conteiner">
+        <h1>Controle de entrada</h1>
+
+        <label>Uniformizado:</label>
+        <select id="uniforme">
+            <option value="true">Sim</option>
+            <option value="false">Nao</option>
+        </select>
+
+        <label>Está na lista:</label>
+        <select id="lista">
+            <option value="true">Sim</option>
+            <option value="false">Nao</option>
+        </select>
+
+        <label>Atraso (minutos):</label>
+        <input type="number" id="atraso">
+
+        <label>Tem autorização:</label>
+        <select id="autorizacao"> 
+            <option value="true">Sim</option>
+            <option value="false">Nao</option>
+        </select>
+
+        <label>Tem pendência:</label>
+        <select id="pendencia">
+            <option value="true">Sim</option>
+            <option value="false">Nao</option>
+        </select>
+
+        <label>Laboratório lotado:</label>
+        <select id="lotado">
+            <option value="true">Sim</option>
+            <option value="false">Nao</option>
+        </select>
+
+        <button onclick="verificarEntrada()">Verificar</button>
+
+        <h2 id="resultado"></h2>
+
+        <div class="conteiner">
+            <div class="painel">
+                <p><strong>Total de Verificações: </strong> <span id="contador">0</span></p>
+            </div>
+
+            <div class="painel">
+                <h3>Histórico de Verificações</h3>
+                <ul id="listaHistorico"></ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
