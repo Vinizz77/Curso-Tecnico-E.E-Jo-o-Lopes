@@ -1,37 +1,96 @@
-<div class="collapse mb-4" id="formCadastro">
+<div
+    class="collapse mb-4"
+    id="formCadastro"
+>
+
     <div class="card card-body shadow-sm">
-        <form action="acoes/cadastrar.php" method="post" class="row-3">
+
+        <form
+            action="acoes/cadastrar.php"
+            method="POST"
+            class="row g-3"
+        >
+
             <div class="col-md-3">
-                <label class="for-label">
+
+                <label class="form-label">
                     Tipo
                 </label>
-                <select name="tipo" class="form-select" required>
-                    <option value="">Selecione</option>
-                    <option value="">Carro</option>
-                    <option value="">Moto</option>
+
+                <select
+                    name="tipo"
+                    class="form-select"
+                    required
+                >
+
+                    <option value="">
+                        Selecione
+                    </option>
+
+                    <option value="carro">
+                        Carro
+                    </option>
+
+                    <option value="moto">
+                        Moto
+                    </option>
+
                 </select>
+
             </div>
-            <div class="col-md-4">
+
+
+            <div class="col-md-3">
+
                 <label class="form-label">
                     Placa
                 </label>
-                <input type="text" name="placa" class="form-control" maxlength="8" required>
-                </select>
+
+                <input
+                    type="text"
+                    name="placa"
+                    class="form-control"
+                    maxlength="10"
+                    required
+                >
+
             </div>
+
+
             <div class="col-md-4">
+
                 <label class="form-label">
                     Modelo
                 </label>
-                <input type="text" name="modelo" class="form-control">
-                </select>
+
+                <input
+                    type="text"
+                    name="modelo"
+                    class="form-control"
+                    maxlength="100"
+                    required
+                >
+
             </div>
-            <div class="col-md-4 d-flex align-items-end">
-                <button type="submit" class="btn btn-sucess w-100">
+
+
+            <div class="col-md-2 d-flex align-items-end">
+
+                <button
+                    type="submit"
+                    class="btn btn-success w-100"
+                >
+
                     <i class="bi bi-check-circle"></i>
+
                     Salvar
+
                 </button>
+
             </div>
+
         </form>
+
     </div>
 
 </div>

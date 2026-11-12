@@ -19,7 +19,8 @@ function App() {
         <div className='col-lg-7'>
             <h1 className='text-center mb-4'>My Games</h1>
         </div>
-        <FormularioJogo/>
+        <FormularioJogo
+        generos={generos}/>
       </div>
     </main>
 
