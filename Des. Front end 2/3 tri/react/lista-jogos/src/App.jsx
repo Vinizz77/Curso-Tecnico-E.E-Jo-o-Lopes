@@ -1,29 +1,82 @@
-import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import './App.css'
+import { useEffect, useState } from 'react'
 import FormularioJogo from './components/FormularioJogo'
-const generos= [
+import ListaJogos from './components/ListaJogos'
+import './App.css'
+
+const generos = [
   'RPG',
-  'Souls like',
-  'Arcade',
+  'Ação',
+  'Corrida',
   'Esporte',
-  'FPS'
+  'Estratégia',
+  'Sandbox'
+]
+
+const jogosIniciais = [
+  {
+    id: 1,
+    nome: 'Elden Ring',
+    genero: 'RPG'
+  },
+  {
+    id: 2,
+    nome: 'Forza Horizon 5',
+    genero: 'Corrida'
+  }
 ]
 
 function App() {
-  return (
-    <main className='container py-5'>
-      <div className='row justify-content-center'>
-        <div className='col-lg-7'>
-            <h1 className='text-center mb-4'>My Games</h1>
-        </div>
-        <FormularioJogo
-        generos={generos}/>
-      </div>
-    </main>
+  const [jogos, setJogos] = useState(() => {
+    const jogosSalvos = localStorage.getItem('jogos')
 
+    return jogosSalvos
+      ? JSON.parse(jogosSalvos)
+      : jogosIniciais
+  })
+
+  useEffect(() => {
+    localStorage.setItem(
+      'jogos',
+      JSON.stringify(jogos)
+    )
+  }, [jogos])
+
+  function adicionarJogo(nome, genero) {
+    const novoJogo = {
+      id: Date.now(),
+      nome,
+      genero
+    }
+
+    setJogos((jogosAtuais) => [
+      ...jogosAtuais,
+      novoJogo
+    ])
+  }
+
+  return (
+    <main className="container py-5">
+
+      <div className="row justify-content-center">
+
+        <div className="col-lg-7">
+
+          <h1 className="text-center mb-4">
+            🎮 Meus Jogos
+          </h1>
+
+          <FormularioJogo
+            generos={generos}
+            adicionarJogo={adicionarJogo}
+          />
+
+          <ListaJogos jogos={jogos} />
+
+        </div>
+
+      </div>
+
+    </main>
   )
 }
 

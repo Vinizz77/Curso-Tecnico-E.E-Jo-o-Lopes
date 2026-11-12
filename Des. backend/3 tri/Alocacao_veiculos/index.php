@@ -31,19 +31,19 @@ require 'includes/mensagem.php';
 </div>
 
 
-<?php require 'include/__________.php'; ?>
+<?php require 'includes/form-cadastro.php'; ?>
 
 
 <div class="row">
 
-    <?php __________ ($veiculos as $v): ?>
+    <?php foreach ($veiculos as $v): ?>
 
-        <?php require 'include/__________.php'; ?>
+        <?php require 'includes/card-veiculo.php'; ?>
 
-    <?php __________; ?>
+    <?php endforeach; ?>
 
 
-    <?php if (__________($veiculos)): ?>
+    <?php if (empty($veiculos)): ?>
 
         <div class="col-12">
 
@@ -62,4 +62,4 @@ require 'includes/mensagem.php';
 </div>
 
 
-<?php require 'include/__________.php'; ?>
+<?php require 'includes/footer.php'; ?>
